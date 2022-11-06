@@ -1,9 +1,9 @@
 //Steica Malina-Alexa, grupa 161
-//am adaugat doar clasele pe care le voi folosi (si cate un obiect pentru test)
 
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstring>
 
 class Date
 {
@@ -72,13 +72,16 @@ public:
         marime{marime_},
         producator{producator_}
     {
-        std::cout<<"-Constructor produs-"<<'\n';
+        std::cout<<"-Constructor Produs-"<<'\n';
     };
+
     friend std::ostream& operator<<(std::ostream& os, const Produs& Prod)
     {
         os <<Prod.id_prod<<" "<<Prod.denumire<<" "<<Prod.pret<<"lei "<<Prod.material<<" "<<Prod.culoare<<" "<<Prod.marime<<" "<<Prod.producator<<'\n';
         return os;
     }
+    friend void reducere (Produs &x);
+    friend void set_price(Produs &x);
 };
 class Angajat
 {
@@ -93,20 +96,56 @@ public:
         rol{rol_},
         date_personale{date_personale_}
     {
-        std::cout<<"constructor angajati"<<'\n';
+        std::cout<<"-Constructor Angajati-"<<'\n';
     };
     friend std::ostream& operator<<(std::ostream& os, const Angajat& An)
     {
         os <<An.id_angajat<<" "<<An.rol<<" "<<An.date_personale<<'\n';
         return os;
     }
-};
+    Angajat(const Angajat& other) : id_angajat{other.id_angajat}, rol{other.rol},date_personale{other.date_personale}
+    {
+        std::cout<<"Constructor de copiere Angajat\n";
+    }
+    Angajat& operator=(const Angajat& other)
+    {
+        id_angajat = other.id_angajat;
+        rol=other.rol;
+        date_personale=other.date_personale;
+        return *this;
+    }
+    ~Angajat() {};//destructor
 
+};
+class Magazin
+{
+    Angajat angajati[21];
+    Produs produse[101];
+};
+void reducere (Produs &x)
+{
+    if(x.pret>100)
+        x.pret=x.pret-x.pret*0.3;
+}
+void set_price(Produs &x)
+{if(x.denumire=="Bluza") x.pret=79.99;
+if(x.denumire=="Pantaloni") x.pret=129.99;
+if(x.denumire=="Rochie") x.pret=99.90;
+}
 int main()
 {
     Angajat A1{1,"Manager",Date{"Andrei","0766555222","andrei@gmail.com"}};
     Distribuitor D1{1,Date{"Zara","0766555333","zara@gmail.com"},"Strada 1 Decembrie, nr. 1"};
-    Produs P1{1,"Bluza",149.99,"Matase","Alb","M",{D1}};
-    std::cout<<A1<<D1<<P1;
+    Produs P1{1,"Bluza",-1,"Matase","Alb","M",{D1}};
+    Produs P2{1,"Pantaloni",-1,"Piele","Negru","M",{D1}};
+    Produs P3{1,"Rochie",-1,"Satin","Rosu","M",{D1}};
+    std::cout<<A1<<D1<<P1<<P2<<P3;
+    set_price(P1);
+    set_price(P2);
+    set_price(P3);
+    std::cout<<P1<<P2<<P3;
+    reducere(P1);
+    reducere(P2);
+    std::cout<<"Dupa reducere"<<P1<<P2<<P3;
     return 0;
 }
