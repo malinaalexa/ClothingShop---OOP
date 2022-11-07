@@ -51,7 +51,7 @@ class Produs
 {
     int id_prod;
     std::string denumire;
-    float pret;
+    double pret;
     std::string material;
     std::string culoare;
     std::string marime;
@@ -59,7 +59,7 @@ class Produs
 public:
     Produs(int id_prod_,
            const std::string& denumire_,
-           float pret_,
+           double pret_,
            const std::string& material_,
            const std::string& culoare_,
            const std::string& marime_,
