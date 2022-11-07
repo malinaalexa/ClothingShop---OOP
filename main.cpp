@@ -117,11 +117,6 @@ public:
     ~Angajat() {};//destructor
 
 };
-class Magazin
-{
-    Angajat angajati[21];
-    Produs produse[101];
-};
 void reducere (Produs &x)
 {
     if(x.pret>100)
