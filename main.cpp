@@ -33,7 +33,7 @@ class Distribuitor
     Date date_distr;
     std::string adresa;
 public:
-    Distribuitor (int id_distr_,const Date date_distr_,
+    Distribuitor (int id_distr_,const Date& date_distr_,
                   const std::string& adresa_) :
         id_distr{id_distr_},
         date_distr{date_distr_},
@@ -51,7 +51,7 @@ class Produs
 {
     int id_prod;
     std::string denumire;
-    double pret;
+    float pret;
     std::string material;
     std::string culoare;
     std::string marime;
@@ -59,11 +59,11 @@ class Produs
 public:
     Produs(int id_prod_,
            const std::string& denumire_,
-           double pret_,
+           float pret_,
            const std::string& material_,
            const std::string& culoare_,
            const std::string& marime_,
-           const Distribuitor producator_) :
+           const Distribuitor &producator_) :
         id_prod{id_prod_},
         denumire{denumire_},
         pret{pret_},
@@ -91,7 +91,7 @@ class Angajat
 public:
     Angajat(int id_angajat_,
             const std::string& rol_,
-            const Date date_personale_) :
+            const Date &date_personale_) :
         id_angajat{id_angajat_},
         rol{rol_},
         date_personale{date_personale_}
