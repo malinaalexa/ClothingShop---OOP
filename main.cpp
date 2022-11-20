@@ -24,7 +24,18 @@ public:
         os <<Date.nume<<" "<<Date.numar_telefon<<" "<<Date.adresa_mail;
         return os;
     }
-    friend class Produs;
+    std::string getnume()
+    {
+        return nume;
+    }
+    std::string getmail()
+    {
+        return adresa_mail;
+    }
+    std::string gettel()
+    {
+        return numar_telefon;
+    }
 };
 class Distribuitor
 {
@@ -45,7 +56,18 @@ public:
         os <<Distr.id_distr<<" "<<Distr.date_distr<<" "<<Distr.adresa<<'\n';
         return os;
     }
-    friend class Produs;
+    void afisare_nume()
+    {
+        std::cout<<date_distr.getnume();
+    }
+    void afisare_mail()
+    {
+        std::cout<<date_distr.getmail();
+    }
+    void afisare_tel()
+    {
+        std::cout<<date_distr.gettel();
+    }
 };
 class Produs
 {
@@ -104,8 +126,14 @@ public:
     {
         if((nr_buc<30 && nr_buc>10) || nr_buc==0)
         {
-            std::cout<<"Vom contacta distribuitorul "<<producator.date_distr.nume<<" pentru a comanda "<<30-nr_buc<<" produse."<<'\n';
-            std::cout<<"Mail: "<<producator.date_distr.adresa_mail<<'\n'<<"Numar de telefon: "<<producator.date_distr.numar_telefon<<'\n';
+            std::cout<<"Vom contacta distribuitorul ";
+            producator.afisare_nume();
+            std::cout<<" pentru a comanda "<<30-nr_buc<<" produse."<<'\n';
+            std::cout<<"Mail: ";
+            producator.afisare_mail();
+            std::cout<<'\n'<<"Numar de telefon: ";
+            producator.afisare_tel();
+            std::cout<<'\n';
             nr_buc=30;
         }
     }
