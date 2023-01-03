@@ -26,7 +26,7 @@ public:
         return *this;
     }
     void marire_salariu();
-    ~Angajat();
+    ~Angajat() = default;
 };
 
 
