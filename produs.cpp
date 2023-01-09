@@ -1,14 +1,15 @@
 #include "produs.h"
 #include <iostream>
 #include <utility>
-Produs::Produs() : pret(pret), nr_buc(nr_buc), redus(redus) {
+int Produs::urm=0;
+Produs::Produs() : id_prod(urm) {
     pret=0;
     nr_buc=15;
     redus=0;
 }
 
-Produs::Produs(std::string denumire,double pret, int nr_buc, int redus)
-        : denumire(std::move(denumire)),pret(pret),nr_buc(nr_buc), redus(redus){
+Produs::Produs(std::string denumire, double pret, int nr_buc, int redus, const int idProd)
+        : denumire(std::move(denumire)), pret(pret), nr_buc(nr_buc), redus(redus), id_prod(idProd) {
 }
 
 Produs::Produs(const Produs &other) = default;
@@ -20,11 +21,11 @@ Produs &Produs::operator=(const Produs &other) {
     redus=other.redus;
     return *this;
 }
-double Produs::pretprod()
+double Produs::pretprod() const
 {
     return pret;
 }
-int Produs::nr_buc_prod()
+int Produs::nr_buc_prod() const
 {
     return nr_buc;
 }
@@ -37,6 +38,11 @@ void Produs::lichidare_de_stoc()
         reducere();
         reducere();
     }
+}
+
+std::ostream &operator<<(std::ostream &os, const Produs &Prod) {
+    os <<Prod.denumire<<" "<<Prod.pret<<"lei "<<Prod.nr_buc<<'\n';
+    return os;
 }
 
 Produs::~Produs() = default;

@@ -5,7 +5,9 @@
 #include <utility>
 Bluza::Bluza()=default;
 
-Bluza::Bluza(const std::string &denumire, double pret, int nr_buc, int redus,std::string tip) : Produs(denumire,pret,nr_buc,redus), tip(std::move(tip)){}
+Bluza::Bluza(const std::string &denumire, double pret, int nr_buc, int redus,std::string tip) : Produs(denumire, pret,
+                                                                                                       nr_buc, redus,
+                                                                                                       0), tip(std::move(tip)){}
 Bluza &Bluza::operator=(const Bluza &other) {
     denumire = other.denumire;
     pret = other.pret;

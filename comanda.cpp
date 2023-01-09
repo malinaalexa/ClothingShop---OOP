@@ -2,17 +2,17 @@
 #include "comanda.h"
 Comanda::Comanda() = default;
 Comanda &Comanda::operator=(const Comanda&obj) {
-    Comanda temp(obj);
-    swap(*this, temp);
-    return *this;
+   Comanda temp(obj);
+   swap(*this, temp);
+  return *this;
 }
 void swap(Comanda &obj1, Comanda &obj2) {
-    std::swap(obj1.prod_comandate, obj2.prod_comandate);
+std::swap(obj1.prod_comandate, obj2.prod_comandate);
 
 }
 Comanda::Comanda(const Comanda&other) {
-    for (auto &Produs: other.prod_comandate)
-        prod_comandate.push_back(Produs->clone());
+   for (auto &Produs: other.prod_comandate)
+    prod_comandate.push_back(Produs->clone());
 
 }
 
@@ -32,6 +32,6 @@ void Comanda::calculvaloare()
 }
 Comanda::~Comanda() = default;
 void Comanda::insert(Produs &prod) {
-    prod_comandate.push_back(prod.clone());
+   prod_comandate.push_back(prod.clone());
 }
 

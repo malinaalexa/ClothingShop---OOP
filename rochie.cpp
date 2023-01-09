@@ -5,7 +5,10 @@
 #include <utility>
 Rochie::Rochie()=default;
 
-Rochie::Rochie(const std::string &denumire, double pret, int nr_buc, int redus,std::string lungime) : Produs(denumire,pret,nr_buc,redus), lungime(std::move(lungime)){}
+Rochie::Rochie(const std::string &denumire, double pret, int nr_buc, int redus,std::string lungime) : Produs(denumire,
+                                                                                                             pret,
+                                                                                                             nr_buc,
+                                                                                                             redus, 0), lungime(std::move(lungime)){}
 Rochie &Rochie::operator=(const Rochie &other) {
     denumire = other.denumire;
     pret = other.pret;
