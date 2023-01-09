@@ -1,19 +1,22 @@
+
 cmake_minimum_required(VERSION 3.15)
+
 # NOTE: update executable name in .github/workflows/cmake.yml:44 when changing executable name in this file
 # for now, the project name is used as the executable name
-project(poo)
+project(oop)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+add_executable(poo main.cpp produs.cpp produs.h comanda.cpp comanda.h pantaloni.cpp pantaloni.h rochie.cpp rochie.h bluza.cpp bluza.h angajat.cpp angajat.h)
 
 # By default, treat warnings as errors; override via cmake defines or via env vars
 if(DEFINED WARNINGS_AS_ERRORS)
-  # do nothing, already defined
+    # do nothing, already defined
 elseif(DEFINED ENV{WARNINGS_AS_ERRORS})
-  set(WARNINGS_AS_ERRORS $ENV{WARNINGS_AS_ERRORS})
+    set(WARNINGS_AS_ERRORS $ENV{WARNINGS_AS_ERRORS})
 else()
-  set(WARNINGS_AS_ERRORS ON)
+    set(WARNINGS_AS_ERRORS ON)
 endif()
 
 ###############################################################################
@@ -38,16 +41,17 @@ endif()
 # find_package(Threads REQUIRED)
 
 ###############################################################################
-add_executable(poo main.cpp produs.cpp produs.h comanda.cpp comanda.h pantaloni.cpp pantaloni.h rochie.cpp rochie.h bluza.cpp bluza.h angajat.cpp angajat.h)
 
+# NOTE: update executable name in .github/workflows/cmake.yml when changing name here
+add_executable(${PROJECT_NAME} main.cpp)
 
 ###############################################################################
 
 # target definitions
 
 if(GITHUB_ACTIONS)
-  message("NOTE: GITHUB_ACTIONS defined")
-  target_compile_definitions(${PROJECT_NAME} PRIVATE GITHUB_ACTIONS)
+    message("NOTE: GITHUB_ACTIONS defined")
+    target_compile_definitions(${PROJECT_NAME} PRIVATE GITHUB_ACTIONS)
 endif()
 
 ###############################################################################
@@ -57,12 +61,12 @@ message("Compiler: ${CMAKE_CXX_COMPILER_ID} version ${CMAKE_CXX_COMPILER_VERSION
 if(MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /W4 /permissive- /wd4244 /wd4267 /external:anglebrackets /external:W0)
     if(WARNINGS_AS_ERRORS)
-      target_compile_options(${PROJECT_NAME} PRIVATE /WX)
+        target_compile_options(${PROJECT_NAME} PRIVATE /WX)
     endif()
 else()
     target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic)
     if(WARNINGS_AS_ERRORS)
-      target_compile_options(${PROJECT_NAME} PRIVATE -Werror)
+        target_compile_options(${PROJECT_NAME} PRIVATE -Werror)
     endif()
 
     if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU")
