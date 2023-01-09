@@ -23,8 +23,8 @@ std::ostream &operator<<(std::ostream &os, const Rochie&produs) {
     return os;
 }
 
-Rochie::Rochie(const Rochie &other): Produs(other) {
-    lungime = other.lungime;
+Rochie::Rochie(const Rochie &other): Produs(other),lungime(other.lungime) {
+
 }
 void Rochie::reducere()
 {
