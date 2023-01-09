@@ -1,33 +1,33 @@
 #ifndef OOP_PRODUS_H
 #define OOP_PRODUS_H
 #include <iostream>
-
+#include<memory>
+#include <vector>
 class Produs {
 protected:
-        int id_prod;
-        std::string denumire;
-        double pret;
-        int nr_buc;
-        int redus = 0;
-    public:
-        Produs(int id_prod_,
-               const std::string &denumire_,
-               double pret_,
-               int nr_buc_) :
-                id_prod{id_prod_},
-                denumire{denumire_},
-                pret{pret_},
-                nr_buc{nr_buc_} {
-            std::cout << "-Constructor Produs-" << '\n';
-        };
+    std::string denumire;
+    double pret;
+    int nr_buc;
+    int redus;
+public:
+    Produs();
+
+    Produs(std::string denumire, double pret, int nr_buc, int redus);
+
+    Produs(const Produs &other);
+
+    Produs &operator=(const Produs &other);
+
     friend std::ostream& operator<<(std::ostream& os, const Produs& Prod)
     {
-        os <<Prod.id_prod<<" "<<Prod.denumire<<" "<<Prod.pret<<"lei "<<Prod.nr_buc<<'\n';
+        os <<Prod.denumire<<" "<<Prod.pret<<"lei "<<Prod.nr_buc<<'\n';
         return os;
     }
+    virtual std::shared_ptr<Produs> clone() const = 0;
     double pretprod();
-    void reducere();
-
+    int nr_buc_prod();
+    virtual void reducere();
     void lichidare_de_stoc();
+    virtual ~Produs();
 };
 #endif //OOP_PRODUS_H
