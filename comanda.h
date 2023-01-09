@@ -19,7 +19,7 @@ public:
     explicit Comanda(const std::vector<std::shared_ptr<Produs>> &prodComandate);
     friend std::ostream &operator<<(std::ostream &os, const Comanda&comanda);
     friend void swap(Comanda &obj1, Comanda &obj2);
-    void calculvaloare();
+    //void calculvaloare();
     void insert(Produs &prod);
     virtual ~Comanda();
 };

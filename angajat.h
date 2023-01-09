@@ -25,7 +25,7 @@ public:
         rol=other.rol;
         return *this;
     }
-    void marire_salariu();
+    //void marire_salariu();
     ~Angajat() = default;
 };
 

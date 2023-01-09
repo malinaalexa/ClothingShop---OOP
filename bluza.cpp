@@ -21,9 +21,7 @@ std::ostream &operator<<(std::ostream &os, const Bluza&produs) {
     return os;
 }
 
-Bluza::Bluza(const Bluza &other): Produs(other) {
-    tip = other.tip;
-}
+Bluza::Bluza(const Bluza &other) : Produs(other), tip(other.tip) {}
 void Bluza::reducere()
 {
     if(pret>80 && redus<=0 && tip=="tricou")

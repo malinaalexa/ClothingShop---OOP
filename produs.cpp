@@ -29,6 +29,7 @@ int Produs::nr_buc_prod() const
 {
     return nr_buc;
 }
+/*
 void Produs::lichidare_de_stoc()
 {
     if(nr_buc<10)
@@ -38,7 +39,7 @@ void Produs::lichidare_de_stoc()
         reducere();
         reducere();
     }
-}
+}*/
 
 std::ostream &operator<<(std::ostream &os, const Produs &Prod) {
     os <<Prod.denumire<<" "<<Prod.pret<<"lei "<<Prod.nr_buc<<'\n';

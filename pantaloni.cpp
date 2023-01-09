@@ -18,8 +18,7 @@ std::ostream &operator<<(std::ostream &os, const Pantaloni&produs) {
     return os;
 }
 
-Pantaloni::Pantaloni(const Pantaloni &other): Produs(other) {
-    lungime = other.lungime;
+Pantaloni::Pantaloni(const Pantaloni &other): Produs(other), lungime(other.lungime){
 }
 void Pantaloni::reducere()
 {   if(pret>90 && redus<=0 && tip=="trening")

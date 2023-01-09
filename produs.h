@@ -26,7 +26,7 @@ public:
     double pretprod() const;
     int nr_buc_prod() const;
     virtual void reducere() = 0;
-    void lichidare_de_stoc();
+    //void lichidare_de_stoc();
     virtual ~Produs();
 
 };
