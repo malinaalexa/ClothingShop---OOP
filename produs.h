@@ -24,7 +24,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Produs& Prod);
     virtual std::shared_ptr<Produs> clone() const = 0;
     double pretprod() const;
-    int nr_buc_prod() const;
+    //int nr_buc_prod() const;
     virtual void reducere() = 0;
     //void lichidare_de_stoc();
     virtual ~Produs();

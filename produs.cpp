@@ -21,15 +21,17 @@ Produs &Produs::operator=(const Produs &other) {
     redus=other.redus;
     return *this;
 }
+
 double Produs::pretprod() const
 {
     return pret;
 }
+/*
 int Produs::nr_buc_prod() const
 {
     return nr_buc;
 }
-/*
+
 void Produs::lichidare_de_stoc()
 {
     if(nr_buc<10)
