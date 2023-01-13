@@ -7,7 +7,7 @@ project(oop)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-
+add_executable(poo main.cpp produs.cpp angajat.cpp bluza.cpp comanda.cpp pantaloni.cpp rochie.cpp)
 # By default, treat warnings as errors; override via cmake defines or via env vars
 if(DEFINED WARNINGS_AS_ERRORS)
     # do nothing, already defined
@@ -41,7 +41,7 @@ endif()
 ###############################################################################
 
 # NOTE: update executable name in .github/workflows/cmake.yml when changing name here
-add_executable(${PROJECT_NAME} main.cpp produs.h angajat.cpp bluza.cpp comanda.cpp pantaloni.cpp produs.cpp rochie.cpp)
+add_executable(${PROJECT_NAME} main.cpp)
 
 ###############################################################################
 
