@@ -5,9 +5,9 @@
 #include<memory>
 #include<string>
 #include <vector>
+#include "angajat.h"
 int main() {
-    //Bluza Bl("Bluza de bumbac",99.99,15,0,"tricou");
-    //Bl.reducere();
-   // std::cout<<Bl.pretprod();
-   // return 0;
+    Angajat An{"Popescu Ion",2700,"Manager",2,20};
+    std::cout<<An.getsalariu();
+    return 0;
 }
