@@ -4,6 +4,7 @@
 #include "produs.h"
 #include <iostream>
 #include <memory>
+#include <exception>
 
 class Bluza : public Produs {
 protected:
@@ -17,7 +18,12 @@ public:
     std::shared_ptr<Produs> clone() const override;
     friend std::ostream &operator<<(std::ostream &os, const Bluza &produs);
     void reducere() override;
+    void setTip(std::string tip);
+    std::string gettip();
     ~Bluza() override;
+
+
+
 };
 
 

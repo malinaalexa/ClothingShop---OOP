@@ -30,6 +30,17 @@ void Bluza::reducere()
 std::shared_ptr<Produs> Bluza::clone() const {
     return std::make_shared<Bluza>(*this);
 }
+std::string Bluza::gettip()
+{
+    return tip;
+}
+void Bluza::setTip(std::string tip1) {
+    if (tip1 == "maleta" || tip1 == "tricou" || tip1 == "cu maneci lungi") {
+        this->tip = tip1;
+    } else {
+        throw std::invalid_argument("Invalid tip value");
+    }
+}
 
 Bluza::~Bluza() = default;
 
