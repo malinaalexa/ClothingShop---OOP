@@ -6,7 +6,7 @@
 #include <vector>
 class Produs {
 protected:
-    const int id_prod;
+    const int id_prod = 0;
     std::string denumire;
     double pret;
     int nr_buc;
@@ -15,12 +15,9 @@ protected:
 public:
     Produs();
 
-    Produs(std::string denumire, double pret, int nr_buc, int redus, const int idProd);
-
+    Produs(std::string denumire, double pret, int nr_buc, int redus);
     Produs(const Produs &other);
-
     Produs &operator=(const Produs &other);
-
     friend std::ostream& operator<<(std::ostream& os, const Produs& Prod);
     virtual std::shared_ptr<Produs> clone() const = 0;
     double pretprod() const;

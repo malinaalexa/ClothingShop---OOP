@@ -8,8 +8,8 @@ Produs::Produs() : id_prod(urm) {
     redus=0;
 }
 
-Produs::Produs(std::string denumire, double pret, int nr_buc, int redus, const int idProd)
-        : denumire(std::move(denumire)), pret(pret), nr_buc(nr_buc), redus(redus), id_prod(idProd) {
+Produs::Produs(std::string denumire, double pret, int nr_buc, int redus)
+        : denumire(std::move(denumire)), pret(pret), nr_buc(nr_buc), redus(redus) {
 }
 
 Produs::Produs(const Produs &other) = default;
@@ -47,5 +47,6 @@ std::ostream &operator<<(std::ostream &os, const Produs &Prod) {
     os <<Prod.denumire<<" "<<Prod.pret<<"lei "<<Prod.nr_buc<<'\n';
     return os;
 }
+
 
 Produs::~Produs() = default;

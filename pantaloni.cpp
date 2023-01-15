@@ -5,7 +5,7 @@
 Pantaloni::Pantaloni()=default;
 
 Pantaloni::Pantaloni(const std::string &denumire, double pret, int nr_buc, int redus,std::string lungime,std::string tip) :
-        Produs(denumire, pret, nr_buc, redus, 0), lungime(std::move(lungime)), tip(std::move(tip)){}
+        Produs(denumire, pret, nr_buc, redus), lungime(std::move(lungime)), tip(std::move(tip)){}
 Pantaloni &Pantaloni::operator=(const Pantaloni &other) {
     denumire = other.denumire;
     pret = other.pret;

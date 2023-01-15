@@ -14,7 +14,6 @@ public:
     Bluza(const std::string &denumire, double pret, int nr_buc, int redus, std::string tip);
     Bluza(const Bluza &other);
     Bluza& operator=(const Bluza&other);
-
     std::shared_ptr<Produs> clone() const override;
     friend std::ostream &operator<<(std::ostream &os, const Bluza &produs);
     void reducere() override;

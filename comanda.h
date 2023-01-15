@@ -20,8 +20,9 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const Comanda&comanda);
     friend void swap(Comanda &obj1, Comanda &obj2);
     //void calculvaloare();
-    void insert(Produs &prod);
+    void insert(const Produs &prod);
     virtual ~Comanda();
+
 };
 
 

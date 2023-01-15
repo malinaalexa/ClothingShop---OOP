@@ -1,5 +1,10 @@
 
 #include "comanda.h"
+#include<memory>
+#include <vector>
+#include "rochie.h"
+#include "bluza.h"
+#include "pantaloni.h"
 Comanda::Comanda() = default;
 Comanda &Comanda::operator=(const Comanda&obj) {
    Comanda temp(obj);
@@ -31,7 +36,7 @@ void Comanda::calculvaloare()
     valoare=valoare+pret*buc;}
 }*/
 Comanda::~Comanda() = default;
-void Comanda::insert(Produs &prod) {
+void Comanda::insert(const Produs &prod) {
    prod_comandate.push_back(prod.clone());
 }
 
