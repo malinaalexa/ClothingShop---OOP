@@ -34,7 +34,7 @@ std::string Bluza::gettip()
 {
     return tip;
 }
-void Bluza::setTip(std::string tip1) {
+void Bluza::setTip(const std::string& tip1) {
     if (tip1 == "maleta" || tip1 == "tricou" || tip1 == "cu maneci lungi") {
         this->tip = tip1;
     } else {

@@ -18,7 +18,7 @@ public:
     std::shared_ptr<Produs> clone() const override;
     friend std::ostream &operator<<(std::ostream &os, const Bluza &produs);
     void reducere() override;
-    void setTip(std::string tip);
+    void setTip(const std::string& tip);
     std::string gettip();
     ~Bluza() override;
 
