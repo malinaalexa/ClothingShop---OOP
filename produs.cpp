@@ -26,26 +26,18 @@ double Produs::pretprod() const
 {
     return pret;
 }
-/*
+
 int Produs::nr_buc_prod() const
 {
     return nr_buc;
 }
-
-void Produs::lichidare_de_stoc()
-{
-    if(nr_buc<10)
-    {
-        std::cout<<"Promotie! Pretul este redus cu 20% de doua ori!"<<'\n';
-        redus=-1;
-        reducere();
-        reducere();
-    }
-}*/
-
 std::ostream &operator<<(std::ostream &os, const Produs &Prod) {
-    os <<Prod.denumire<<" "<<Prod.pret<<"lei "<<Prod.nr_buc<<'\n';
+    Prod.afis(os);
     return os;
+}
+
+ void Produs::afis(std::ostream &ostream) const {
+    ostream <<denumire<<" "<<pret<<"lei "<<nr_buc<<" ";
 }
 
 

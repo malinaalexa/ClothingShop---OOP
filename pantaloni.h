@@ -20,8 +20,11 @@ public:
     std::shared_ptr<Produs> clone() const override;
     friend std::ostream &operator<<(std::ostream &os, const Pantaloni &produs);
     void reducere() override;
+    std::string gettip();
+    void setTip(const std::string &tip1);
+    std::string getlungime();
+    void setLungime(const std::string &lung1);
     ~Pantaloni() override;
-
 };
 
 

@@ -13,11 +13,11 @@ public:
     Rochie(const std::string &denumire, double pret, int nr_buc, int redus, std::string lungime);
     Rochie(const Rochie &other);
     Rochie& operator=(const Rochie&other);
-
     std::shared_ptr<Produs> clone() const override;
-    friend std::ostream &operator<<(std::ostream &os, const Rochie &produs);
     void reducere() override;
     ~Rochie() override;
+    std::string getlungime();
+    void setLungime(const std::string &lung1);
 };
 
 
