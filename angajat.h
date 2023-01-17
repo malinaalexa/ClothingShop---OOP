@@ -10,10 +10,13 @@ protected:
     std::string rol;
     int overtime;
     int zile_luna;
+
 public:
     Angajat(std::string nume, double salariu, std::string rol, int overtime, int zile_luna);
     friend std::ostream& operator<<(std::ostream& os, const Angajat& An);
     Angajat(const Angajat& other);
+
+    Angajat();
     Angajat& operator=(const Angajat& other);
     double getsalariu();
     ~Angajat() = default;

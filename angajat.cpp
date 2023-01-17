@@ -21,11 +21,15 @@ Angajat &Angajat::operator=(const Angajat &other) {
 
 Angajat::Angajat(const Angajat &other) : nume{other.nume}, salariu{other.salariu}, rol{other.rol}, overtime{other.overtime}, zile_luna{other.zile_luna}
 {
-    std::cout<<"Constructor de copiere Angajat\n";
+
 }
 
 std::ostream &operator<<(std::ostream &os, const Angajat &An) {
     os <<An.nume<<" "<<An.salariu<<" "<<An.rol<<"Zile lucrate pe luna in curs: "<< An.overtime+An.zile_luna<<'\n';
     return os;
 }
+
+Angajat::Angajat() {}
+
+
 

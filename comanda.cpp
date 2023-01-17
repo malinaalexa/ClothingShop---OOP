@@ -1,12 +1,9 @@
 
 #include "comanda.h"
 #include<memory>
+#include <utility>
 #include <vector>
-#include "rochie.h"
-#include "bluza.h"
-#include "pantaloni.h"
 #include "produs.h"
-Comanda::Comanda() = default;
 
 void Comanda::swap(Comanda &obj1, Comanda obj2) {
 std::swap(obj1.prod_comandate, obj2.prod_comandate);
@@ -23,22 +20,25 @@ Comanda::Comanda(const Comanda&other) {
 }
 
 std::ostream &operator<<(std::ostream &os, const Comanda &comanda) {
-    os <<"Ati comandat:" << comanda.nrproduse << "produse, in valoare de:" << comanda.valoare;
+    os <<"Ati comandat produse, in valoare de:" << comanda.valoare;
     return os;
 }
-
-Comanda::Comanda(const std::vector<std::shared_ptr<Produs>> &prodComandate) : prod_comandate(prodComandate) {}
-
 
 void Comanda::calculvaloare()
 {int n=prod_comandate.size();
     for(int i=0;i<n;i++)
     {double pret=prod_comandate[i]->pretprod();
-    int buc=prod_comandate[i]->nr_buc_prod();
-    valoare=valoare+pret*buc;}
-}
-Comanda::~Comanda() = default;
-void Comanda::insert(const Produs &prod) {
+    valoare=valoare+pret*nr_buc[i];}
+std::cout<<"\nValoarea comenzii: "<<valoare<<" lei \n";}
+
+
+void Comanda::insert(const Produs &prod,int x) {
    prod_comandate.push_back(prod.clone());
+   nr_buc.push_back(x);
 }
 
+Comanda::Comanda(std::vector<std::shared_ptr<Produs>> prod_comandate, double valoare, const Angajat& An_responsabil, std::vector<int> nr_buc)
+        : prod_comandate(std::move(prod_comandate)),valoare(valoare), An_responsabil(An_responsabil), nr_buc(std::move(nr_buc)){
+}
+
+Comanda::~Comanda() = default;

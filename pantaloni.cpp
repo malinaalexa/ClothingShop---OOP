@@ -39,7 +39,7 @@ void Pantaloni::setTip(const std::string& tip1) {
     if (tip1 == "Blugi" || tip1 == "Eleganti" || tip1 == "Trening") {
         this->tip = tip1;
     } else {
-        throw std::invalid_argument("Invalid tip value");
+        throw std::invalid_argument("Invalid value");
     }
 }
 std::string Pantaloni::getlungime()

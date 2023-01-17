@@ -40,7 +40,7 @@ void Rochie::setLungime(const std::string& lung1) {
     if (lung1 == "Scurta" || lung1 == "Lunga" || lung1 == "Midi") {
         this->lungime = lung1;
     } else {
-        throw std::invalid_argument("Invalid tip value");
+        throw std::invalid_argument("Invalid value");
     }
 }
 Rochie::~Rochie() = default;

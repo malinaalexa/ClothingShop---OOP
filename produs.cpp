@@ -27,10 +27,7 @@ double Produs::pretprod() const
     return pret;
 }
 
-int Produs::nr_buc_prod() const
-{
-    return nr_buc;
-}
+
 std::ostream &operator<<(std::ostream &os, const Produs &Prod) {
     Prod.afis(os);
     return os;
