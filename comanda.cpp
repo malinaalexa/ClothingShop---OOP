@@ -32,9 +32,10 @@ void Comanda::calculvaloare()
 std::cout<<"\nValoarea comenzii: "<<valoare<<" lei \n";}
 
 
-void Comanda::insert(const Produs &prod,int x) {
+void Comanda::insert(Produs &prod,int x) {
    prod_comandate.push_back(prod.clone());
    nr_buc.push_back(x);
+   prod.edit_stoc(x);
 }
 
 Comanda::Comanda(std::vector<std::shared_ptr<Produs>> prod_comandate, double valoare, const Angajat& An_responsabil, std::vector<int> nr_buc)

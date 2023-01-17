@@ -19,10 +19,10 @@ public:
     static void swap(Comanda &obj1, Comanda obj2);
     Comanda &operator=(const Comanda &obj);
     Comanda(const Comanda &other);
-    explicit Comanda(const std::vector<std::shared_ptr<Produs>> &prodComandate);
+
     friend std::ostream &operator<<(std::ostream &os, const Comanda&comanda);
     void calculvaloare();
-    void insert(const Produs &prod, int x);
+    void insert(Produs &prod, int x);
     virtual ~Comanda();
 };
 

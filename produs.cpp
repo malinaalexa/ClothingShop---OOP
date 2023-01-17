@@ -37,5 +37,12 @@ std::ostream &operator<<(std::ostream &os, const Produs &Prod) {
     ostream <<denumire<<" "<<pret<<"lei "<<nr_buc<<" ";
 }
 
+void Produs::edit_stoc(int x) {
+nr_buc=nr_buc-x;
+}
+
+int Produs::getstoc() {
+    return nr_buc;
+}
 
 Produs::~Produs() = default;

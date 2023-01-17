@@ -21,8 +21,9 @@ public:
     virtual std::shared_ptr<Produs> clone() const = 0;
     double pretprod() const;
     virtual void reducere() = 0;
-    //void lichidare_de_stoc();
+    void edit_stoc(int x);
     virtual void afis(std::ostream &ostream) const;
+    int getstoc();
     virtual ~Produs();
 };
 #endif //OOP_PRODUS_H
