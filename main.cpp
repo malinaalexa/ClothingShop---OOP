@@ -10,7 +10,7 @@
 int main() {
     Angajat An1("Popescu Ion", 2700, "Manager", 2, 20);
     std::cout<<An1.getsalariu()<<'\n';
-
+    std::vector<Produs*> stoc;
     Bluza Bl{"Bluza de bumbac",99.99,15,0,"tricou"};
 
     try {
@@ -42,6 +42,12 @@ int main() {
     }
     auto* st3 = dynamic_cast<Produs*>(&Ro);
     std::cout<<st3->pretprod()<<'\n';
+
+    try{
+        stoc.push_back(st1);
+        stoc.push_back(st2);
+        stoc.push_back(st3);}
+    catch (std::exception& e) { std::cout << e.what() << std::endl; }
     Comanda C1 = Comanda(std::vector<std::shared_ptr<Produs>>(), 0, An1,std::vector<int>());
     C1.insert(Bl,3);
     C1.insert(Pan,1);
