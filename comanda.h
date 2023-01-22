@@ -12,18 +12,20 @@
 class Comanda {
     std::vector<std::shared_ptr<Produs>> prod_comandate;
     double valoare=0;
-    Angajat An_responsabil;
+    Angajat<int> An_responsabil;
     std::vector<int> nr_buc;//vector de "frecventa" pt produsele din comanda. retine cate bucati se comanda dintr-un produs
 public:
-    Comanda(std::vector<std::shared_ptr<Produs>>  prod_comandate, double valoare, const Angajat& An_responsabil, std::vector<int> nr_buc);
+    Comanda(std::vector<std::shared_ptr<Produs>>  prod_comandate, double valoare, const Angajat<int>& An_responsabil, std::vector<int> nr_buc);
     static void swap(Comanda &obj1, Comanda obj2);
     Comanda &operator=(const Comanda &obj);
     Comanda(const Comanda &other);
-
     friend std::ostream &operator<<(std::ostream &os, const Comanda&comanda);
     void calculvaloare();
     void insert(Produs &prod, int x);
-    virtual ~Comanda();
+    void livrare();
+    void getbonusfin();
+    ~Comanda();
+
 };
 
 
