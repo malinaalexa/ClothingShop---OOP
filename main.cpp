@@ -9,8 +9,11 @@
 
 std::vector<Produs*> stoc;
 int main() {
-    Angajat An1("Popescu Ion", 2700, "Manager", 2, 20);
-    std::cout<<An1.getsalariu()<<'\n';
+
+    Angajat<int> An1("Popescu Ion", 2700.0, "Manager", 2, 20,19);
+    std::cout<<"Salariu initial "<<An1.getsalariu()<<". Cu bonus devine ";
+    An1.bonus_final();
+    std::cout<<'\n';
     Bluza Bl{"Bluza de bumbac",99.99,15,0,"tricou"};
 
     try {
@@ -54,5 +57,7 @@ int main() {
     C1.insert(Pan,1);
     std::cout<<"\nStoc dupa comanda (Bluze, Pantaloni, Rochii): "<<stoc[0]->getstoc()<< " "<<stoc[1]->getstoc()<<" "<<stoc[2]->getstoc()<<'\n';
     C1.calculvaloare();
+    std::cout<<"\nSalariul angajatului cu bonus marit va deveni: ";//C1 e a 20-a comanda de care se ocupa pt a arata marirea de bonus
+    C1.getbonusfin();
     return 0;
 }
