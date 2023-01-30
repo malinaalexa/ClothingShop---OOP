@@ -5,14 +5,16 @@
 #include <vector>
 #include "produs.h"
 #include "angajat.h"
+
 Comanda::Comanda(std::vector<std::shared_ptr<Produs>>  prod_comandate, double valoare, const Angajat<int>& An_responsabil, std::vector<int> nr_buc) :
         prod_comandate(std::move(prod_comandate)), valoare(valoare), An_responsabil(An_responsabil), nr_buc(std::move(nr_buc))
 {}
 void Comanda::swap(Comanda &obj1, Comanda obj2) {
-std::swap(obj1.prod_comandate, obj2.prod_comandate);
+    std::swap(obj1.prod_comandate, obj2.prod_comandate);
 }
 Comanda &Comanda::operator=(const Comanda&obj) {
-    swap(*this, Comanda(obj));
+    const Comanda& temp(obj);
+    swap(*this, temp);
     return *this;
 }
 
@@ -32,12 +34,14 @@ void Comanda::livrare() {
 }
 
 void Comanda::calculvaloare()
-{int n=prod_comandate.size();
+    {
+    int n=prod_comandate.size();
     for(int i=0;i<n;i++)
     {double pret=prod_comandate[i]->pretprod();
     valoare=valoare+pret*nr_buc[i];}
-std::cout<<"\nValoarea comenzii: "<<valoare<<" lei \n";
-livrare();}
+    std::cout<<"\nValoarea comenzii: "<<valoare<<" lei \n";
+    livrare();
+}
 
 
 void Comanda::insert(Produs &prod,int x) {

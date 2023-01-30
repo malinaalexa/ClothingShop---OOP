@@ -34,7 +34,7 @@ template<typename T>
 void Angajat<T>::bonus_final() {
     salariu=salariu+bonus*15;
     if(bonus>=20)
-        salariu=salariu+bonus*15*0.5; //pentru angajatii care s-au ocupat de peste 20 de comenzi bonusul este cu 5% mai mare
+        salariu=salariu+bonus*15*0.05; //pentru angajatii care s-au ocupat de peste 20 de comenzi bonusul este cu 5% mai mare
     std::cout<<salariu;
 }
 template<typename T>

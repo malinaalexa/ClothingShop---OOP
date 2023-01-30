@@ -38,7 +38,15 @@ std::ostream &operator<<(std::ostream &os, const Produs &Prod) {
 }
 
 void Produs::edit_stoc(int x) {
-nr_buc=nr_buc-x;
+if(nr_buc==0) std::cout<<"Produs indisponibil.\n";
+else
+if(nr_buc-x>=0)
+    nr_buc=nr_buc-x;
+else {
+    std::cout<<"Nu mai sunt disponibile decat "<<x-nr_buc<<" produse.\n";
+    nr_buc=0;
+}
+
 }
 
 int Produs::getstoc() {
